@@ -43,7 +43,7 @@ but it does require Python.
 
 ## Getting Started with QEP-parser
 Activate your environment if you haven't already, 
-then clone the repository from Git:
+then clone the project from GitHub:
 ```
 git clone https://github.com/quelgeek/QEP-parser
 cd QEP-parser
@@ -51,8 +51,8 @@ cd QEP-parser
 
 The ANTLR grammar files have a **.g4** suffix.
 
-Generate a Python lexer and parser, plus a visitor and
-a listener, from the **QueryPlan.g4** specification:
+Generate a lexer, parser, visitor, and
+listener from the **QueryPlan.g4** grammar specification:
 ```
 antlr4 -Dlanguage=Python3 QueryPlan.g4 -visitor
 ```
