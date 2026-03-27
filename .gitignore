@@ -2,3 +2,12 @@
 build/
 *egg-info/
 *__pycache__*
+QueryPlan.interp
+QueryPlan.tokens
+QueryPlanLexer.interp
+QueryPlanLexer.py
+QueryPlanLexer.tokens
+QueryPlanListener.py
+QueryPlanParser.py
+QueryPlanVisitor.py
+
