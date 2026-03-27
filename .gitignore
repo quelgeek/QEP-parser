@@ -1,0 +1,4 @@
+*.sw?
+build/
+*egg-info/
+*__pycache__*
