@@ -16,6 +16,12 @@ version of Python from 3.8 onwards should be usable for this project.
 Many other languages can be supported using the grammar files supplied here.)
 
 ## Installing ANTLR
+
+
+
+> [!TIP]
+> To learn about using ANTLR see [The ANTLR Mega Tutorial](https://tomassetti.me/antlr-mega-tutorial).
+
 You will need to install [ANTLR](https://www.antlr.org). 
 ANTLR generates lexers and parsers from an ANTLR grammar. 
 
@@ -26,12 +32,14 @@ for instructions on installing it.
 I strongly endorse the suggestion there for "getting started the easy way", 
 but it does require Python.
 
-**Note:** if the *antlr4* command fails with a **FileNotFoundError** because
-it could not get the latest version number, a workaround is to:
-```
-export ANTLR4_TOOLS_ANTLR_VERSION=4.13.2
-```
-then try again.
+> [!NOTE]
+> If the *antlr4* command fails with a **FileNotFoundError** because
+> it could not get the latest version number, a workaround is to:
+> ```
+> export ANTLR4_TOOLS_ANTLR_VERSION=4.13.2
+> ```
+> then try again.
+
 
 ## Getting Started with QEP-parser
 Activate your environment if you haven't already, 
