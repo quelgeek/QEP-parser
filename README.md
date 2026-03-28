@@ -25,7 +25,7 @@ You will need to install [ANTLR](https://www.antlr.org).
 ANTLR reads a grammar definintion and generates a lexer and parser
 for it, coded in a target language such as Python, Java, C++, etc. 
 
-If you have created a Python environment for this project,
+If you created a Python environment for this project,
 activate it before installing ANTLR.
 
 See [Getting Started with ANTLR v4](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)
@@ -33,7 +33,8 @@ for instructions on installing it.
 I strongly endorse the suggestion there for "getting started the easy way", 
 but it does require Python. 
 
-You also need to install the ANTLR4 Python3 run-time, which is not 
+If your target language is Python you need to install the ANTLR4 Python3
+run-time, which is not specifically 
 mentioned in the above referenced *Getting Started* guide:
 ```
 pip install antlr4-python3-runtime
