@@ -12,8 +12,7 @@ whatever steps you usually take to set up an isolated Python development
 environment. I use [conda](https://www.anaconda.com/). You be you. Any 
 version of Python from 3.8 onwards should be usable for this project.
 
-(Python is not mandatory.
-Many other languages can be supported using the grammar files supplied here.)
+(Python is not mandatory. Many other target languages are supported by ANTLR)
 
 ## Installing ANTLR
 
@@ -23,14 +22,22 @@ Many other languages can be supported using the grammar files supplied here.)
 > To learn about using ANTLR see [The ANTLR Mega Tutorial](https://tomassetti.me/antlr-mega-tutorial).
 
 You will need to install [ANTLR](https://www.antlr.org). 
-ANTLR generates lexers and parsers from an ANTLR grammar. 
+ANTLR reads a grammar definintion and generates a lexer and parser
+for it, coded in a target language such as Python, Java, C++, etc. 
 
-If you have created a Python environment, activate it before installing ANTLR.
+If you have created a Python environment for this project,
+activate it before installing ANTLR.
 
 See [Getting Started with ANTLR v4](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)
 for instructions on installing it.
 I strongly endorse the suggestion there for "getting started the easy way", 
-but it does require Python.
+but it does require Python. 
+
+You also need to install the ANTLR4 Python3 run-time, which is not 
+mentioned in the above referenced *Getting Started* guide:
+```
+pip install antlr4-python3-runtime
+```
 
 > [!NOTE]
 > If the *antlr4* command fails with a **FileNotFoundError** because
@@ -67,5 +74,5 @@ If there are no errors you will now have the following additional files:
 * **QueryPlan.tokens**
 * **QueryPlanVisitor.py**
 
-The new **.py** files can now be used to develop Python-based tools to
+The new **.py** files can be used to develop Python-based tools to
 interpret and report concise Ingres query execution plans.
