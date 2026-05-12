@@ -1,0 +1,571 @@
+digraph QEP
+{
+	graph
+	[
+		ranksep=.25;
+		rankdir="RL"
+		labelloc="t"
+		labeljust="l"
+		fontname="Courier"
+		fontsize=10
+		ordering="in"
+		label="QUERY PLAN 34,1, greedy, of main query"
+	];
+
+	edge [arrowsize=.5 dir="back"];
+
+	node [shape=rectangle,fontname="Courier",fontsize=8,height=.45];
+
+	"ON1"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object</B></TD></TR>
+				<TR><TD ALIGN="LEFT">referenced as t0</TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON3"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT">referenced as toa</TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON6"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>document</B></TD></TR>
+				<TR><TD ALIGN="LEFT">referenced as dl</TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON9"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_type</B></TD></TR>
+				<TR><TD ALIGN="LEFT">referenced as ot</TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON12"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT"></TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON14"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT"></TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON18"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_line</B></TD></TR>
+				<TR><TD ALIGN="LEFT">referenced as objline</TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON20"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT"></TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON23"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT"></TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON25"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT"></TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"ON30"
+	[
+		shape=cylinder, label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD>&nbsp;</TD></TR>
+				<TR><TD ALIGN="LEFT"><B>object_attribute</B></TD></TR>
+				<TR><TD ALIGN="LEFT"></TD></TR>
+				<TR><TD ALIGN="LEFT">Heap </TD></TR>
+				<TR><TD ALIGN="LEFT">Approximate size: 3 pages, 1 row</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR0"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR2"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR5"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(doc_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR8"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id_type)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR11"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR13"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR17"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id_cour)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR19"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR22"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR24"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR29"
+	[
+		style=filled,fillcolor="WHITESMOKE",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>PROJECT &amp; RESTRICT</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 page pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 row rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN4"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(doc_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   2 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN7"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>left FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(doc_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id_type)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   3 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN10"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B>left FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id_type)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorton(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   4 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN15"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorted(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   2 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN16"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorted(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   6 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN21"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorted(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   2 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN26"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorted(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   2 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN27"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorted(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   4 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN28"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Sorted(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   10 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"JN31"
+	[
+		style=filled,fillcolor="HONEYDEW",label=
+		<
+			<TABLE BORDER="0" CELLSPACING="0">
+				<TR><TD ALIGN="CENTER"><B> FSM join</B></TD></TR>
+				<TR><TD ALIGN="LEFT">Key(object_id)</TD></TR>
+				<TR><TD ALIGN="LEFT">Heap</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>
+				<TR><TD ALIGN="LEFT">   1 pages</TD></TR>
+				<TR><TD ALIGN="LEFT">   1 rows</TD></TR>
+				<TR><TD ALIGN="LEFT">Predicted cost:</TD></TR>
+				<TR><TD ALIGN="LEFT">   11 DIOs</TD></TR>
+				<TR><TD ALIGN="LEFT">   0 CPU</TD></TR>
+			</TABLE>
+		>
+	];
+
+	"PR0" -> "ON1";
+	"PR2" -> "ON3";
+	"JN4" -> "PR0";
+	"JN4" -> "PR2";
+	"PR5" -> "ON6";
+	"JN7" -> "JN4";
+	"JN7" -> "PR5";
+	"PR8" -> "ON9";
+	"JN10" -> "JN7";
+	"JN10" -> "PR8";
+	"PR11" -> "ON12";
+	"PR13" -> "ON14";
+	"JN15" -> "PR11";
+	"JN15" -> "PR13";
+	"JN16" -> "JN10";
+	"JN16" -> "JN15";
+	"PR17" -> "ON18";
+	"PR19" -> "ON20";
+	"JN21" -> "PR17";
+	"JN21" -> "PR19";
+	"PR22" -> "ON23";
+	"PR24" -> "ON25";
+	"JN26" -> "PR22";
+	"JN26" -> "PR24";
+	"JN27" -> "JN21";
+	"JN27" -> "JN26";
+	"JN28" -> "JN16";
+	"JN28" -> "JN27";
+	"PR29" -> "ON30";
+	"JN31" -> "JN28";
+	"JN31" -> "PR29";
+}
