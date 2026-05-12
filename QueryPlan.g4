@@ -1,7 +1,16 @@
-/* proof-of-concept ANTLR 4 grammar to parse "Lisp format" Ingres QEPs  */
-/* roy.hann@rationalcommerce.com */
-/* pretty rough-and-ready but good enough to prove that Lisp format QEPs can be parsed */
-/* still contains some deadwood from tried-and-failed ideas; I'll clean it up some day... */
+/* 
+
+proof-of-concept ANTLR 4 grammar to parse "Lisp format" Ingres QEPs 
+
+roy.hann@rationalcommerce.com 
+
+pretty rough-and-ready but good enough to prove that Lisp format QEPs
+can be parsed
+
+still contains some deadwood from tried-and-failed ideas; I'll clean
+it up some day...(pull requests are invited!) 
+
+*/
 
 grammar QueryPlan;
 import QEPLexer;
@@ -44,13 +53,13 @@ join
 	:	(outer_join JOIN)?
 		join_technique JOIN
 		('(' key_column_list ')')?
-		result_structure 
+		result_structure? 
 		result_size
 		disk_cost cpu_cost
 		'{' plan '}' '{' plan '}';
 
 result_size
-	:	PAGES page_count TUPS row_count;
+	:	(PAGES page_count TUPS row_count | TUPS row_count PAGES page_count);
 
 outer_join
 	:	LEFT | RIGHT | FULL ;
@@ -71,7 +80,7 @@ intermediate_attribute
 	:	TEMPATT;
 
 result_structure	
-	:	HEAP|((SORTED|SORT|SORTU) ON? '(' (not_used_flag | key_column_list) ')');
+	:	HEAP|((PARTIAL|SORTED|SORT|SORTU) ON? '(' (not_used_flag | key_column_list) ')');
 
 page_count
 	:	NUMBER;
@@ -87,27 +96,27 @@ cpu_cost
 
 proj_rest
     :	PROJ_REST
-		result_structure
+		result_structure?
 		result_size
 		disk_cost cpu_cost 
 		'{' orig_node '}';
 
 sort
 	:	SORT (UNIQUE)?
-		result_size
+		(PAGES page_count TUPS row_count | TUPS row_count PAGES page_count)
 		disk_cost cpu_cost 
 		'{' plan '}';
 
 exchange_node
     :	EXCHANGE
 		result_structure
-		PAGES page_count TUPS row_count
-		REDUCTION reduction_count
+		(PAGES page_count TUPS row_count | TUPS row_count PAGES page_count)
+		REDUCTION reduction
 		THREADS thread_count
 		disk_cost cpu_cost 
-		'{' proj_rest '}';
+		'{' plan '}';
 
-reduction_count
+reduction
 	:	NUMBER;
 
 thread_count
@@ -115,10 +124,9 @@ thread_count
 
 orig_node
 	:	table_name  
-		(INDEX_OF '(' base_table_name ')' )?
-		('('correlation_name')' )?
-		source_structure ('(' (not_used_flag | key_column_list) ')')?
-		PAGES page_count TUPS row_count
+		(INDEX_OF? '(' correlation_name ')' )?
+		source_structure physical_key?
+		(PAGES page_count TUPS row_count | TUPS row_count PAGES page_count)
 		(PARTITIONS partition_count)?;
 
 base_table_name
@@ -131,7 +139,10 @@ not_used_flag
 	:	NOT_USED;
 
 source_structure	
-	:	HEAP|CHEAP|B_TREE|CB_TREE|ISAM|CISAM|HASH|CHASH|HASHED; 
+	:	HEAP|CHEAP|B_TREE|CB_TREE|ISAM|CISAM|HASH|CHASH|HASHED|CHASHED; 
+
+physical_key
+    :   '(' (not_used_flag | key_column_list) ')';
 
 index_name
 	:	name INDEX_OF '(' key_column_list ')';
