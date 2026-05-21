@@ -152,7 +152,6 @@ class ProjRestNode(QEPNode):
         super().__init__()
         self.page_count = None
         self.row_count = None    
-        #self.result_structure = 'Heap'
 
 
     def as_dot(self):
@@ -208,6 +207,7 @@ class JoinNode(QEPNode):
         self.outer_join = ''
         self.join_technique = None
         self.key_column_list = []
+        self.result_key_components = []
         self.result_structure = 'Heap'
         self.page_count = None
         self.row_count = None    
@@ -229,6 +229,10 @@ class JoinNode(QEPNode):
         fillcolor = fill_colors[self.join_technique]
         disk_cost = self.disk_cost[1:]
         cpu_cost = self.cpu_cost[1:]
+        result_structure = (
+            self.result_structure + '(' +
+            ','.join(self.result_key_components) +
+            ')' )
 
         dot = [
             f'\t"{self.nodeName}"',
@@ -239,7 +243,7 @@ class JoinNode(QEPNode):
 			f'\t\t\t\t<TR><TD ALIGN="CENTER"><B>{self.outer_join} '
                 f'{self.join_technique} join</B></TD></TR>',
             f'\t\t\t\t<TR><TD ALIGN="LEFT">Key({self.key_column_list})</TD></TR>',
-            f'\t\t\t\t<TR><TD ALIGN="LEFT">{self.result_structure}</TD></TR>',
+            f'\t\t\t\t<TR><TD ALIGN="LEFT">{result_structure}</TD></TR>',
 			'\t\t\t\t<TR><TD ALIGN="LEFT">Predicted result size:   </TD></TR>',
             '\t\t\t\t<TR><TD ALIGN="LEFT">'
                 f'   {self.page_count} pages</TD></TR>',
@@ -388,11 +392,59 @@ class QueryPlanVisualizer(QueryPlanVisitor):
             pass
         node.join_technique = ctx.join_technique().getText()
         if ctx.key_column_list():
-            node.key_column_list = ctx.key_column_list().getText() #self.visit(ctx.key_column_list())
-        try:
-            node.result_structure = ctx.result_structure().getText() # <- FIX ME
-        except AttributeError:
+            # node.key_column_list = self.visit(ctx.key_column_list())
+            node.key_column_list = ctx.key_column_list().getText()
+
+        if not ctx.result_structure():
             pass
+        elif ctx.result_structure().nonheap():
+            nonheap = ctx.result_structure().nonheap().getText()
+            if ctx.result_structure().not_used_flag():
+                node.result_key_components.append('NU')
+            else:
+                # pull out each of the key components because we want to
+                # highlight any function attributes (FAn) in red
+                result_key = ctx.result_structure().result_key()
+                key_components = [result_key.result_key_component(i)
+                    for i in range(result_key.getChildCount())
+                    if result_key.result_key_component(i)]
+                for key_component in key_components:
+                    if key_component.function_attribute():
+                        FAname = key_component.function_attribute().getText()
+                        name = key_component.name().getText()
+                        key_name = ( 
+                            '<font color="RED">'
+                            f'{FAname} {name}'
+                            '</font>' )
+                    elif key_component.intermediate_attribute():
+                        IAname = key_component.intermediate_attribute().getText()
+                        name = key_component.name().getText()
+                        key_name = f'{IAname} {name}'
+                    else:
+                        key_name = key_component.name().getText()
+                    node.result_key_components.append(key_name)
+        else:
+            node.result_structure = ctx.result_structure().getText()
+
+#        try:
+#            # node.result_structure = ctx.result_structure().getText() # <- FIX ME
+#            
+#            node.result_structure = ctx.result_structure().getText() # <- FIX ME
+#            breakpoint()
+#            rs = ctx.result_structure()
+#            rk = rs.result_key()
+#            components = [rk.result_key_component(i)
+#                for i in range(rk.getChildCount())]
+#            for component in components:
+#                prefix = ''
+#                if component.function_attribute():
+#                    FAname = component.function_attribue().getText()
+#                    prefix = '<font color="RED">' + FAname + ' ' + '</font>'
+#                component_name = prefix + component.name().getText()
+#        except AttributeError:
+#            pass
+
+
         node.page_count = ctx.result_size().page_count().getText()
         node.row_count = ctx.result_size().row_count().getText()
         node.disk_cost = ctx.disk_cost().getText()

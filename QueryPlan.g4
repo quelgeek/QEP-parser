@@ -71,7 +71,7 @@ key_column_list
 	:	( key_column_name (',' key_column_name)* );
 
 key_column_name
-	:	(function_attribute | intermediate_attribute)? name;
+    :   name;
 
 function_attribute
 	:	FUNCATT;
@@ -79,8 +79,20 @@ function_attribute
 intermediate_attribute
 	:	TEMPATT;
 
-result_structure	
-	:	HEAP|((PARTIAL|SORTED|SORT|SORTU) ON? '(' (not_used_flag | key_column_list) ')');
+result_key_component
+	 :	(function_attribute | intermediate_attribute)? name;
+
+result_key
+	:	( result_key_component (',' result_key_component)* );
+
+result_structure
+    :   heap | nonheap ON? '(' (not_used_flag | result_key) ')';
+
+heap
+    :   HEAP;
+
+nonheap
+    :   PARTIAL|SORTED|SORT|SORTU; 
 
 page_count
 	:	NUMBER;
