@@ -77,3 +77,24 @@ If there are no errors you will now have the following additional files:
 
 The new **.py** files can be used to develop Python-based tools to
 interpret and report concise Ingres query execution plans.
+
+## Examples and Demo.py
+I have supplied an example Python script called Demo.py that parses a concise QEP and generates 
+a [Graphviz DOT](https://graphviz.org/doc/info/lang.html) language specification of 
+a graphical representation of the query plan. 
+
+> [!NOTE]
+> This whole project is a bit ragged. I don't guarantee that either the grammar or 
+> Demo.py can handle every concise QEP. For one thing the format of CQEPs is not entirely stable,
+> with new notations added, some notations made optional, and some appearing in different positions.
+> Please do let me know about CQEPs that can't be handled. 
+
+The DOT specification can be rendered in any supported graphical format (e.g. PDF, SVG, PNG, etc.)
+See the [.pdf](https://github.com/quelgeek/QEP-parser/blob/master/example/example.pdf) or
+[.svg](https://github.com/quelgeek/QEP-parser/blob/master/example/example.svg) files in the example folder.  The diagrams 
+somewhat resemble the default "ASCII art" QEP diagram that is familiar to most Ingres programmers, except the diagrams
+are read left-to-right, and they are colour-coded to suggest areas to focus on if a query performs less well than expected. 
+(Green indicates an operation that is usually considered efficient; yellow indicates an operation which is usually efficient
+but may sometimes be suboptimal, and red indicates an operation that one would prefer not to see. Grey indicates a necessary
+operation that has cost.) It is easy to think of enhancements that would make the demonstration into a useful tool, but
+for the purpose of showing how to integrate an ANTLR-generated parser into an application it is sufficient.
