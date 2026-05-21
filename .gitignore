@@ -1,4 +1,7 @@
 *.sw?
+*.dot
+*.svg
+*.pdf
 build/
 *egg-info/
 *__pycache__*
