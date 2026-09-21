@@ -78,6 +78,11 @@ If there are no errors you will now have the following additional files:
 The new **.py** files can be used to develop Python-based tools to
 interpret and report concise Ingres query execution plans.
 
+## Taking it for a Spin
+```
+antlr4-parse QueryPlan.g4 qep -gui < TestCases/qp2.qep
+```
+
 ## Examples and Demo.py
 I have supplied an example Python script called Demo.py that parses a concise QEP and generates 
 a [Graphviz DOT](https://graphviz.org/doc/info/lang.html) language specification of 
